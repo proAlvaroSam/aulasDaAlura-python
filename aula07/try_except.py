@@ -17,33 +17,36 @@ def display_options():
     print('4. Sair')
 
 def finish_app():
-    # os.system('cls') usado apenas no Windows
-    os.system('clear')
+    limpar_console()
     print('Finalizando o app\n')
 
 def invalid_option():
-    os.system('clear')
     print('\nOpção inválida!!\n')
     input('Digite qualquer tecla para continuar: ')
     main()
-    print('\nEscolha novamente\n')
 
 def choose_option():
     selected_option = input('\nEscolha uma opção: ')
-    if selected_option == 1:
+    if selected_option == '1':
         print('\nCadastrar restaurantes')
-    elif selected_option == 2:
+    elif selected_option == '2':
         print('\nListar restaurante')
-    elif selected_option == 3:
+    elif selected_option == '3':
         print('\nAtivar restaurante')
-    elif selected_option == 4:
+    elif selected_option == '4':
         finish_app()
         return
     else:
         invalid_option()
 
+def limpar_console():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
 def main():
-    os.system('clear')
+    limpar_console()
     display_the_program_name()
     display_options()
     choose_option()
