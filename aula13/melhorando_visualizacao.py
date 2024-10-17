@@ -7,7 +7,7 @@ restaurants = [
 ]
 
 def display_the_program_name():
-    print("""
+    print(""" 
     ██████╗  ██████╗ ███╗   ███╗     ██████╗  ██████╗ ███████╗████████╗ ██████╗         
     ██╔══██╗██╔═══██╗████╗ ████║    ██╔════╝ ██╔═══██╗██╔════╝╚══██╔══╝██╔═══██╗        
     ██████╔╝██║   ██║██╔████╔██║    ██║  ███╗██║   ██║███████╗   ██║   ██║   ██║        
@@ -32,11 +32,13 @@ def invalid_option():
 
 def register_new_restaurant():
     clear_console()
-    print('Register new restaurant\n')
-    restaurant_name = input('Enter the restaurant name: ')
-    new_restaurant = {'name': restaurant_name, 'active': False}
+    print("""****************************
+Registrar novos Restaurantes
+****************************""")
+    restaurant_name = input('Registre um novo restaurante: ')
+    new_restaurant = {'nome': restaurant_name, 'ativo': False}
     restaurants.append(new_restaurant)
-    print(f'\nRestaurant registered ({restaurant_name})')
+    print(f'\nRestaurante ({restaurant_name}) foi registrado')
     return_to_menu()
 
 def list_all_the_restaurants():
@@ -45,7 +47,6 @@ def list_all_the_restaurants():
     for restaurant in restaurants:
         status = 'Ativo' if restaurant['ativo'] else 'Inativo'
         print(f". {restaurant['nome'].capitalize()} | {status}")
-
     return_to_menu()
 
 def toggle_restaurant_activity():
